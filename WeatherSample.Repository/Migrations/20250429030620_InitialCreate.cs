@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 #nullable disable
 
-namespace WeatherSample.ApiService.Migrations
+namespace WeatherSample.Repository.Migrations
 {
     /// <inheritdoc />
     public partial class InitialCreate : Migration

@@ -3,20 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
-using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
-using WeatherSample.ApiService;
+using WeatherSample.Repository;
 
 #nullable disable
 
-namespace WeatherSample.ApiService.Migrations
+namespace WeatherSample.Repository.Migrations
 {
     [DbContext(typeof(WeatherDbContext))]
-    [Migration("20250429030620_InitialCreate")]
-    partial class InitialCreate
+    partial class WeatherDbContextModelSnapshot : ModelSnapshot
     {
-        /// <inheritdoc />
-        protected override void BuildTargetModel(ModelBuilder modelBuilder)
+        protected override void BuildModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

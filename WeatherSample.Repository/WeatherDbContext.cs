@@ -1,7 +1,7 @@
 using Microsoft.EntityFrameworkCore;
 using WeatherSample.Repository.Entities;
 
-namespace WeatherSample.ApiService;
+namespace WeatherSample.Repository;
 
 public class WeatherDbContext : DbContext
 {

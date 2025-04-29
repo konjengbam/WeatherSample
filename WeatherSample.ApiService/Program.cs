@@ -6,6 +6,7 @@ using Microsoft.FeatureManagement;
 using Microsoft.OpenApi.Models;
 using WeatherSample.ApiService.Repositories;
 using WeatherSample.ApiService.Repositories.Interfaces;
+using WeatherSample.Repository;
 
 // Register Mapster mappings
 MappingConfig.RegisterMappings();

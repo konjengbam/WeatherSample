@@ -1,5 +1,6 @@
 using Microsoft.EntityFrameworkCore;
 using WeatherSample.ApiService.Repositories.Interfaces;
+using WeatherSample.Repository;
 using WeatherSample.Repository.Entities;
 
 namespace WeatherSample.ApiService.Repositories;

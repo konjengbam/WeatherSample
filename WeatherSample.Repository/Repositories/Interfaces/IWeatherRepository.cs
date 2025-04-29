@@ -1,6 +1,6 @@
 using WeatherSample.Repository.Entities;
 
-namespace WeatherSample.ApiService.Repositories.Interfaces;
+namespace WeatherSample.Repository.Repositories.Interfaces;
 
 public interface IWeatherRepository
 {

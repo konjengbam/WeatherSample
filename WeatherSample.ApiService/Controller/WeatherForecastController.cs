@@ -4,7 +4,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.FeatureManagement;
 using Swashbuckle.AspNetCore.Annotations;
 using WeatherSample.Repository.Entities;
-using WeatherSample.ApiService.Repositories.Interfaces;
+using WeatherSample.Repository.Repositories.Interfaces;
 
 namespace WeatherSample.ApiService.Controller;
 

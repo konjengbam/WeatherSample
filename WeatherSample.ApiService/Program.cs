@@ -4,8 +4,8 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.FeatureManagement;
 using Microsoft.OpenApi.Models;
-using WeatherSample.ApiService.Repositories;
-using WeatherSample.ApiService.Repositories.Interfaces;
+using WeatherSample.Repository.Repositories;
+using WeatherSample.Repository.Repositories.Interfaces;
 using WeatherSample.Repository;
 
 // Register Mapster mappings

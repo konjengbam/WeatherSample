@@ -1,0 +1,41 @@
+﻿@using Microsoft.Extensions.Caching.Distributed
+
+@page "/counter"
+@rendermode InteractiveServer
+
+@inject IDistributedCache Cache
+
+<PageTitle>Counter</PageTitle>
+
+<h1>Counter</h1>
+
+<p role="status">Current count: @currentCount</p>
+
+<button class="btn btn-primary" @onclick="IncrementCount">Click me</button>
+
+@code {
+    private int currentCount = 0;
+    private const string CounterCacheKey = "CounterValue";
+
+    protected override async Task OnInitializedAsync()
+    {
+        // Retrieve the counter value from Redis cache
+        var cachedValue = await Cache.GetStringAsync(CounterCacheKey);
+        if (cachedValue != null && int.TryParse(cachedValue, out var parsedValue))
+        {
+            currentCount = parsedValue;
+        }
+        else
+        {
+            currentCount = 0; // Default to zero if the cache doesn't exist or is invalid
+        }
+    }
+
+    private async Task IncrementCount()
+    {
+        currentCount++;
+
+        // Save the updated counter value to Redis cache
+        await Cache.SetStringAsync(CounterCacheKey, currentCount.ToString());
+    }
+}

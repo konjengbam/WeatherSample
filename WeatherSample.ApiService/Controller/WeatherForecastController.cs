@@ -62,6 +62,12 @@ public class WeatherForecastController : ControllerBase
     {
         _logger.LogInformation("Received WeatherForecastDto: {@ForecastDto}", forecastDto);
 
+        // Check if the ModelState is valid
+        if (!ModelState.IsValid)
+        {
+            return BadRequest(ModelState);
+        }
+
         var forecast = forecastDto.Adapt<WeatherForecast>();
         await _weatherRepository.AddAsync(forecast);
 
@@ -71,10 +77,23 @@ public class WeatherForecastController : ControllerBase
 
     private async Task PopulateDatabaseAsync()
     {
-        if (await _featureManager.IsEnabledAsync("EnableDatabaseSeeding"))
+        try
         {
-            await SeedDatabaseAsync();
+            if (await _featureManager.IsEnabledAsync("EnableDatabaseSeeding"))
+            {
+                // TODO: Improve this for production
+                var weatherForecastAll = await _weatherRepository.GetAllAsync();
+                if (!weatherForecastAll.Any())
+                {
+                    await SeedDatabaseAsync();
+                }
+            }
         }
+        catch (Exception ex)
+        {
+            _logger.LogError(ex, "An error occurred while populating the database.");
+        }
+
     }
 
     private async Task SeedDatabaseAsync()

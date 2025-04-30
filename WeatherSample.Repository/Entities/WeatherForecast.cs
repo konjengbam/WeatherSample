@@ -1,9 +1,9 @@
 namespace WeatherSample.Repository.Entities;
 
-public record WeatherForecast
+public class WeatherForecast
 {
-    public int Id { get; init; } // Primary key for EF
-    public DateOnly Date { get; init; }
-    public int TemperatureC { get; init; }
-    public string? Summary { get; init; }
+    public int Id { get; set; } // Primary key for EF
+    public required  DateOnly Date { get; set; }
+    public required int TemperatureC { get; set; }
+    public string? Summary { get; set; }
 }

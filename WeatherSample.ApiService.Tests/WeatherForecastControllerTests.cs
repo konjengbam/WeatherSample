@@ -111,8 +111,7 @@ namespace WeatherSample.ApiService.Tests
             _mockWeatherRepository.Setup(repo => repo.AddAsync(It.IsAny<WeatherForecast>()))
                                   .Callback<WeatherForecast>(f =>
                                   {
-                                      // Use a local variable to simulate the ID assignment
-                                      var updatedForecast = f with { Id = forecast.Id };
+                                      f.Id = forecast.Id;
                                   })
                                   .Returns(Task.CompletedTask);
 
